@@ -1,0 +1,38 @@
+#{extends 'main.html' /}
+#{set title:'Form' /}
+
+#{form @sendReminder()}
+    <h1>Set Email reminder for:</h1>
+    <input type="hidden" name="contact.id" value="${contact?.id}">
+    <p class="field">
+        <label for="name">First Name:</label>
+        <input type="text" id="firstname" name="contact.firstname" value="${contact?.firstname}" readonly>
+    </p>
+
+    <p class="field">
+        <label for="firstname">Last name:</label>
+        <input type="text" id="lastname" name="contact.lastname" value="${contact?.lastname}" readonly>
+    </p>
+
+    <p class="field">
+        <label for="birthdate">Birth date:</label>
+        <input type="text" id="birthdate" name="contact.birthdate" value="${contact?.birthdate?.format('yyyy-MM-dd')}" readonly>
+    </p>
+    
+    <p class="field">
+        <label for="email">Remind before(in hrs):</label>
+        <input type="text" id="email" name="contact.birthdayReminder" value="${contact?.birthdayReminder}">
+        <span class="error">${errors.forKey('contact.birthdayReminder')}</span>
+    </p>
+    <p class="field">
+        <label for="email">Your Email:</label>
+        <input type="text" id="email" name="user.email" value="${user.emailId}" readonly>
+    </p>
+    <p class="buttons">
+     	<input type="submit" value="Set Reminder" id="sendReminder"> / <a href="@{listContacts()}">Cancel</a>
+    </p>
+    
+    <script type="text/javascript" >
+        $("#birthdate").datepicker({dateFormat:'yy-mm-dd', showAnim:'fadeIn'})
+	</script>
+#{/form}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>#{get 'title' /}</title>
+        <link rel="stylesheet" type="text/css" media="screen" href="@{'public/stylesheets/style.css'}" />
+        #{get 'moreStyles' /}
+        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon_1.png'}">
+        <link rel="stylesheet" type="text/css" media="screen" href="@{'public/stylesheets/south-street/jquery-ui-1.7.2.custom.css'}" />
+        <script src="@{'public/javascripts/jquery-1.4.min.js'}" type="text/javascript" ></script>
+        <script src="@{'public/javascripts/jquery-ui-1.7.2.custom.min.js'}" type="text/javascript" ></script>
+        <script src="@{'public/javascripts/jquery.editinplace.packed.js'}" type="text/javascript" ></script>
+        <script src="@{'/public/javascripts/sessvars.js'}" type="text/javascript" ></script>
+        #{get 'moreScripts' /}
+    </head>
+    <body>
+        <div id="header">
+            <h1>Contact Manager</h1>
+            #{if user?.id}
+            <div id="options">
+                Connected as ${user.username}
+                |
+                <a href="@{Application.home()}">Home</a>
+                |
+                <a id="list" href="@{Application.listContacts()}" class="${request.action =~ /list/ ? 'selected' : ''}">Contacts</a>
+                |
+                <a id="new" href="@{Application.editContact()}" class="${request.action =~ /form|save/ ? 'selected' : ''}">New Contact</a>
+                |
+                <a href="@{Application.settings()}">Settings</a>
+                |
+                <a href="@{Application.logout()}">Logout</a>
+            </div>
+            
+            #{/if}
+        </div>
+        <section>
+        </section>
+        <div id="content">
+            #{if flash.error}
+            <p class="fError">
+                <strong>${flash.error}</strong>
+            </p>
+            #{/if}
+            #{if flash.success}
+            <p class="fSuccess">
+                <strong>${flash.success}</strong>
+            </p>
+            #{/if}
+
+            #{doLayout /}
+        </div>
+        <div id="footer">
+            Created with <a href="http://www.playframework.org">play framework</a>
+        </div>
+
+    </body>
+</html>

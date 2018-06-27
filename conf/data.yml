@@ -1,0 +1,38 @@
+# Users
+
+models.User(gavin):
+    username:   guillaume
+    password:   foobar
+    name:       Guillaume Bort
+    emailId:      hello@warry.com
+    
+models.User(indrajit):
+    username:   indrajit
+    password:   gohokar
+    name:       Indrajit Gohokar
+    emailId:    indrajit.gohokar1@gmail.com
+    
+models.User(12345):
+    username:   12345
+    password:   12345
+    name:       Demo User
+    emailId:      12345@12345.com
+    
+models.Contact(12345):
+    firstname:       Dantec
+    lastname:  Maxime
+    birthdate:  1985-11-12
+    email:      hello@warry.fr
+
+models.Contact(12345):
+    firstname:       Bort
+    lastname:  Guillaume
+    birthdate:  1980-12-21
+    email:      guillaume.bort@gmail.com
+
+models.Contact(12345):
+    firstname:       Idg
+    lastname:  Guiasdsadllaume
+    birthdate:  1980-12-21
+    email:      guillaumasdsadsade.bort@gmail.com
+
